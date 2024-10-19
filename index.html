@@ -23,7 +23,8 @@
             <input readonly placeholder="Password" class="display" data-passwordDisplay>
 
             <button data-copy>
-                <span data-copyMsg style="display:none;">Copied</span>
+                <span data-copyMsg class="tooltip">Copied</span>
+
                 <img src="./assets/copy.svg" alt="Copied" height="23" width="23">
             </button>
 
@@ -42,19 +43,19 @@
             <input type="range" min="1" max="20" value="10" class="slider" step="1" data-lengthSlider>
 
             <!-- list of checkboxes  -->
-            <div class="">
+            <div class="check">
                 <input type="checkbox" name="uppercase" id="uppercase">
                 <label for="uppercase">Include Uppercase letters</label>
             </div>
-            <div class="">
+            <div class="check">
                 <input type="checkbox" name="lowercase" id="lowercase">
                 <label for="lowercase">Include Lowercase letters</label>
             </div>
-            <div class="">
+            <div class="check">
                 <input type="checkbox" name="numbers" id="numbers">
                 <label for="numbers">Include Numbers</label>
             </div>
-            <div class="">
+            <div class="check">
                 <input type="checkbox" name="symbols" id="symbols">
                 <label for="symbols">Include Symbols </label>
             </div>
@@ -68,6 +69,7 @@
             <!-- generate password button  -->
             <button class="generateButton">GENERATE PASSWORD</button>
         </div>
+
     </div>
 
     <script src="script.js"></script>

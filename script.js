@@ -8,7 +8,7 @@ const uppercaseCheck = document.querySelector("#uppercase");
 const lowercaseCheck = document.querySelector("#lowercase");
 const numbersCheck = document.querySelector("#numbers");
 const symbolsCheck = document.querySelector("#symbols");
-const indicator = document.querySelector("[data-indicator");
+const indicator = document.querySelector("[data-indicator]");
 const generateBtn = document.querySelector(".generateButton");
 const allCheckBox = document.querySelectorAll("input[type=checkbox]");
 
@@ -22,12 +22,17 @@ let checkCount = 0;
 handleSlider();
 
 //set strength circle to grey
-
+setIndicator("#ccc")
 
 // set password length according to the slider 
 function handleSlider() { // handler function password length ko UI pe reflect krata hai   
     inputSlider.value = passwordLength;
     lengthDisplay.innerText = passwordLength;
+
+    // yaha pe kuch aur aad karna chahiye for UI purpose
+    const min = inputSlider.min;
+    const max = inputSlider.max;
+    inputSlider.style.backgroundSize = ((passwordLength - min) * 100 / (max - min)) + "% 100%"
 }
 
 //to set the strength of indicator
@@ -36,6 +41,8 @@ function setIndicator(color) {
     indicator.style.backgroundColor = color;
 
     //shadow-HW
+    indicator.style.boxShadow = `0px 0px 25px 1px ${color}`;
+    ;
 }
 
 // give random number b/w min and max 
@@ -82,7 +89,7 @@ function calcStrength() { //kon kon se checkbox checked hai ya unchecked hai
 async function copyContent() {
     try {
         await navigator.clipboard.writeText(passwordDisplay.value);
-        copyMsg.innerText = "copied";
+        copyMsg.innerText = "Copied";
 
     } catch (e) {
         copyMsg.innerText = "Failed";
